@@ -1,0 +1,7 @@
+{
+  "name": "VendorPediaV2",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
