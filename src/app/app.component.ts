@@ -24,7 +24,7 @@ export class MyApp {
     messagingSenderId: "947381527762"
     };
     firebase.initializeApp(config);
-
+    
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

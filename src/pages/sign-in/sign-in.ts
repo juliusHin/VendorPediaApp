@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { AuthService } from '../../service/firbaseAuthService';
 
 /**
  * Generated class for the SignInPage page.
@@ -15,11 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SignInPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authService:AuthService,
+    private loading:LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignInPage');
   }
 
+  emailSignIn(f:any){
+   this.authService.signInUser(f.value.email, f.value.password); 
+  }
 }
