@@ -1,1 +1,24 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="sideMenu">
+    <ion-header>
+        <ion-toolbar>Menu</ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="Load(home)">
+                <ion-icon name="home" item-left></ion-icon>
+                    Home
+            </button>
+            <button ion-item (click)="Load(signIn)">
+                <ion-icon name="log-in" item-left></ion-icon>
+                    Sign In
+                </button>
+
+            <button ion-item (click)="Load(about)">
+                <ion-icon name="help" item-left></ion-icon>
+                    About
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #sideMenu></ion-nav>

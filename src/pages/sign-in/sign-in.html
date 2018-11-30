@@ -7,12 +7,33 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>signIn</ion-title>
+      <ion-buttons start>
+          <button ion-button menuToggle >
+          <ion-icon name="menu"></ion-icon>
+          </button>
+          </ion-buttons>
+
+    <ion-title>Sign In</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <form>
+    <ion-list>
+      <ion-item>
+          <ion-label stacked>Email</ion-label>
+          <ion-input type="text" name="email" required placeholder="Enter your email"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Password</ion-label>
+          <ion-input type="password" name="email" required placeholder="Enter your password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button type="submit" ion-button block >Login</button>
+    
+  </form>
 
 </ion-content>
