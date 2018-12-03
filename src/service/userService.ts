@@ -1,4 +1,4 @@
-import { User } from './../pages/data/user.interface';
+import { User } from './../data/user.interface';
 export class UserService{
-    
+        
 }

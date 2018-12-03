@@ -1,8 +1,7 @@
-import { User } from './../data/user.interface';
+
 import { AuthService } from './../../service/firbaseAuthService';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 /**
  * Generated class for the SignUpPage page.
  *
@@ -16,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
-  
+  Use
   constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService) {
   }
 

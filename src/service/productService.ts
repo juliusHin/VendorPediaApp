@@ -1,4 +1,4 @@
-import { Product } from './../pages/data/product.interface';
+import { Product } from './../data/product.interface';
 export class ProductService{
-    
+   
 }

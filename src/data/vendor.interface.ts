@@ -1,9 +1,10 @@
 export interface Vendor{
-    id:string;
+    userId:string;
+    vendorId:string;
     vendorName:string;
     vendorDetail:string;
     vendorCategory:string;
-    vendorAddress:string;
     vendorContact:string;
+    vendorAddress:string;
     vendorPhoto:string;
 }

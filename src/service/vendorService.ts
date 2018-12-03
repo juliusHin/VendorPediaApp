@@ -1,4 +1,4 @@
-import { Vendor } from './../pages/data/vendor.interface';
+import { Vendor } from './../data/vendor.interface';
 export class VendorService{
     
 }
