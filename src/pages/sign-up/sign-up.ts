@@ -1,3 +1,5 @@
+import { User } from './../data/user.interface';
+import { AuthService } from './../../service/firbaseAuthService';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -14,12 +16,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUpPage');
+  }
+
+  registerNewUser(f:any){
+    
+    this.authServiceCtrl.registerUser(f.value.email, f.value.password);
   }
 
 }

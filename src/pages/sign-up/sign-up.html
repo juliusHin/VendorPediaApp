@@ -7,12 +7,42 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>signUp</ion-title>
+    <ion-title>Sign Up</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <form #f="ngForm" (ngSubmit)="registerNewUser(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label Stacked>First Name</ion-label>
+        <ion-input name="fname" type="text" palceholder="Enter your first name" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label Stacked>Last Name</ion-label>
+        <ion-input name="lname" type="text" placeholder="Enter your last name" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label Stacked>Contact</ion-label>
+        <ion-input name="contact" type="text" placeholder="Phone number" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label Stacked>Email</ion-label>
+        <ion-input name="email" type="text" placeholder="Enter your email" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label Stacked>Password</ion-label>
+        <ion-input name="password" type="password" placeholder="Enter your password" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label Stacked>Confirm Password</ion-label>
+        <ion-input name="cPassword" type="password" placeholder="Confirm password" ngModel></ion-input>
+      </ion-item>  
+    </ion-list>
+    <button type="submit" block ion-button>Sign me Up</button>
+  </form>
 
 </ion-content>

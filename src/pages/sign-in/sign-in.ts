@@ -20,11 +20,24 @@ export class SignInPage {
     private loading:LoadingController) {
   }
 
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignInPage');
   }
 
   emailSignIn(f:any){
-   this.authService.signInUser(f.value.email, f.value.password); 
+    let load = this.loading.create({
+      content:"Please Wait..."
+    });
+    load.present();
+   this.authService.signInUser(f.value.email, f.value.password).then((res)=>{
+     console.log("Berhasil Masuk");
+     load.dismiss();
+     this.navCtrl.setRoot('HomePage');
+   }, (err)=>{
+     console.log("Gagal Move On");
+     load.dismiss();
+   });
   }
 }
