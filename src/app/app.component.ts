@@ -1,9 +1,12 @@
+import { SignUpPage } from './../pages/sign-up/sign-up';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
+// import {FormBuilder, FormGroup}
 //import { HomePage } from '../pages/home/home';
+// import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   templateUrl: 'app.html'
 })
@@ -12,6 +15,7 @@ export class MyApp {
   home = 'HomePage';
   about = 'AboutPage';
   signIn = 'SignInPage';
+  signup = 'SignUpPage'
   @ViewChild('sideMenu') nav: NavController;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private menuCtrl:MenuController) {
@@ -37,5 +41,12 @@ export class MyApp {
     this.nav.setRoot(page);
     this.menuCtrl.close();
     }
+
+  // untuk form
+  // author JuliusTanuwijaya
+  // registerForm: FormGroup;
+  // post: any;
+  // description: string = '';
+  // name: string = '';
 }
 
