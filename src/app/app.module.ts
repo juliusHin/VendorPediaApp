@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {HttpModule} from '@angular/http';
+// import {ReactiveFormsModule}
 
 @NgModule({
   declarations: [
@@ -13,7 +16,11 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    ReactiveFormsModule,
+    FormsModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
