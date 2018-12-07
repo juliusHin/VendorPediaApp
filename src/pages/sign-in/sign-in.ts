@@ -15,12 +15,11 @@ import { AuthService } from '../../service/firbaseAuthService';
   templateUrl: 'sign-in.html',
 })
 export class SignInPage {
+  registerPage="SignUpPage";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService:AuthService,
     private loading:LoadingController, private toastCtrl: ToastController) {
   }
-
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignInPage');
@@ -45,5 +44,9 @@ export class SignInPage {
      load.dismiss();
      toast.present();
    });
+  }
+
+  reg(){
+    this.navCtrl.push(this.registerPage);
   }
 }
