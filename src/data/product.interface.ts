@@ -4,4 +4,5 @@ export interface Product{
     productName:string;
     productDetail:string;
     productPrice:string;
+    productPhoto:string;
 }

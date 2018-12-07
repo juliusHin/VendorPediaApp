@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { AuthService } from '../../service/firbaseAuthService';
 
 /**
@@ -17,7 +17,7 @@ import { AuthService } from '../../service/firbaseAuthService';
 export class SignInPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService:AuthService,
-    private loading:LoadingController) {
+    private loading:LoadingController, private toastCtrl: ToastController) {
   }
 
 
@@ -30,14 +30,20 @@ export class SignInPage {
     let load = this.loading.create({
       content:"Please Wait..."
     });
+    let toast = this.toastCtrl.create({
+      message:"Email or Password incorrect",
+      duration:2000,
+      position:"bottom"
+    });
+
     load.present();
    this.authService.signInUser(f.value.email, f.value.password).then((res)=>{
      console.log("Berhasil Masuk");
      load.dismiss();
      this.navCtrl.setRoot('HomePage');
    }, (err)=>{
-     console.log("Gagal Move On");
      load.dismiss();
+     toast.present();
    });
   }
 }

@@ -6,4 +6,5 @@ export interface User{
     userEmail:string;
     userPassword:string;
     userConfirmPassword:string;
+    userPhoto:string;
 }
