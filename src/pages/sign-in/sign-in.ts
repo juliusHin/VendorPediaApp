@@ -46,4 +46,8 @@ export class SignInPage {
      toast.present();
    });
   }
+  reg(){
+    this.navCtrl.push("SignUpPage"); 
+    console.log("Register User"); 
+  }
 }

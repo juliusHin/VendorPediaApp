@@ -2,7 +2,7 @@ import { User } from './../../data/user.interface';
 
 import { AuthService } from './../../service/firbaseAuthService';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 /**
  * Generated class for the SignUpPage page.
  *
@@ -16,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService, private toastCtrl:ToastController) {
   }
 
   ionViewDidLoad() {
@@ -24,7 +24,18 @@ export class SignUpPage {
   }
 
   registerNewUser(f:any){
-    this.authServiceCtrl.registerUser(f.value.email, f.value.password);
+    let toast = this.toastCtrl.create({
+      message:"Register Failed",
+      duration:2000,
+      position:"bottom"
+    });
+    this.authServiceCtrl.registerUser(f.value.email, f.value.password).then((res)=>{
+      console.log("Register Success");
+      this.navCtrl.setRoot("HomePage");
+    },
+    (err)=>{
+      toast.present();
+    });
   }
 
 }

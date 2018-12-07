@@ -1,48 +1,48 @@
-<!--
-  Generated template for the SignUpPage page.
+  <!--
+    Generated template for the SignUpPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+    See http://ionicframework.com/docs/components/#navigation for more info on
+    Ionic pages and navigation.
+  -->
+  <ion-header>
 
-  <ion-navbar>
-    <ion-title>Sign Up</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+      <ion-title>Sign Up</ion-title>
+    </ion-navbar>
 
-</ion-header>
+  </ion-header>
 
 
-<ion-content padding>
+  <ion-content padding>
 
-  <form #f="ngForm" (ngSubmit)="registerNewUser(f)">
-    <ion-list>
-      <ion-item>
-        <ion-label stacked>First Name</ion-label>
-        <ion-input name="fname" type="text" palceholder="Enter your first name" ngModel></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label stacked>Last Name</ion-label>
-        <ion-input name="lname" type="text" placeholder="Enter your last name" ngModel></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label stacked>Contact</ion-label>
-        <ion-input name="contact" type="text" placeholder="Phone number" ngModel></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label stacked>Email</ion-label>
-        <ion-input name="email" type="text" placeholder="Enter your email" ngModel></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label stacked>Password</ion-label>
-        <ion-input name="password" type="password" placeholder="Enter your password" ngModel></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label stacked>Confirm Password</ion-label>
-        <ion-input name="cPassword" type="password" placeholder="Confirm password" ngModel></ion-input>
-      </ion-item>  
-    </ion-list>
-    <button type="submit" block ion-button>Sign me Up</button>
-  </form>
+    <form #f="ngForm" (ngSubmit)="registerNewUser(f)">
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>First Name</ion-label>
+          <ion-input name="fname" type="text" placeholder="Enter your first name" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Last Name</ion-label>
+          <ion-input name="lname" type="text" placeholder="Enter your last name" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Contact</ion-label>
+          <ion-input name="contact" type="text" placeholder="Phone number" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Email</ion-label>
+          <ion-input name="email" type="text" placeholder="Enter your email" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Password</ion-label>
+          <ion-input name="password" type="password" placeholder="Enter your password" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Confirm Password</ion-label>
+          <ion-input name="cPassword" type="password" placeholder="Confirm password" ngModel></ion-input>
+        </ion-item>  
+      </ion-list>
+      <button type="submit" block ion-button>Sign me Up</button>
+    </form>
 
-</ion-content>
+  </ion-content>
