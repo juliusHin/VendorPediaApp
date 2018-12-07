@@ -28,82 +28,34 @@
         </ion-select>
       </ion-item> -->
 
-<<<<<<< HEAD
   <form #f="ngForm" (ngSubmit)="registerNewUser(f)">
     <ion-list>
       <ion-item>
-        <ion-label Stacked>First Name</ion-label>
+        <ion-label stacked>First Name</ion-label>
         <ion-input name="fname" type="text" palceholder="Enter your first name" ngModel></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label Stacked>Last Name</ion-label>
+        <ion-label stacked>Last Name</ion-label>
         <ion-input name="lname" type="text" placeholder="Enter your last name" ngModel></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label Stacked>Contact</ion-label>
+        <ion-label stacked>Contact</ion-label>
         <ion-input name="contact" type="text" placeholder="Phone number" ngModel></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label Stack>Email</ion-label>
+        <ion-label stack>Email</ion-label>
         <ion-input name="email" type="text" placeholder="Enter your email" ngModel></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label Stacked>Password</ion-label>
+        <ion-label stacked>Password</ion-label>
         <ion-input name="password" type="password" placeholder="Enter your password" ngModel></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label Stacked>Confirm Password</ion-label>
+        <ion-label stacked>Confirm Password</ion-label>
         <ion-input name="cPassword" type="password" placeholder="Confirm password" ngModel></ion-input>
       </ion-item>  
     </ion-list>
     <button type="submit" block ion-button>Sign me Up</button>
   </form>
 
-=======
-      <!-- untuk user -->
-      <!-- <ion-item *ngIf="userType == 'user' " >
-        <ion-label floating color="primary">Username</ion-label>
-        <ion-input type="text" formControlName="username" class="form-control" ngModel ></ion-input>
-        <div class="alert" *ngIf="!registerForm.controls['username'].valid && registerForm.controls['username'].touched">
-          {{titleAlert}}
-        </div>
-      </ion-item> -->
-
-      <ion-item>
-        <ion-label floating color="primary">Full Name</ion-label>
-        <ion-input type="text" formControlName="fname" class="form-control" ></ion-input>
-        <div class="alert" *ngIf="!registerForm.controls['fname'].valid && registerForm.controls['fname'].touched">
-            {{titleAlert}}
-        </div>
-      </ion-item>
-
-      <ion-item>
-          <ion-label floating color="primary">Last Name</ion-label>
-          <ion-input type="text" formControlName="lname" class="form-control"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating color="primary">Email</ion-label>
-        <ion-input type="text" formControlName="email" class="form-control" ></ion-input>
-        <div class="alert" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched">
-            {{titleAlert}}
-        </div>
-      </ion-item>
-
-      <!-- untuk VENDOR -->
-      <!-- <ion-item>
-        <ion-label floating ></ion-label>
-        <ion-input type="" ></ion-input>
-      </ion-item> -->
-
-      <!-- <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.username">
-          <div class="error-message" *ngIf="validation_form.get('username').hasError(validation.type) && (validation_form.get('username').dirty || validation_form.get('username').touched)">
-            {{validation.message}}
-          </div>
-        </ng-container>
-      </div> -->
-    </ion-list>
-  </form>
->>>>>>> 81db7ac7dccd2ed70171648ad2d8f992964bc74e
 </ion-content>
