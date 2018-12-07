@@ -7,14 +7,28 @@
 <ion-header>
 
   <ion-navbar>
+<<<<<<< HEAD
     <ion-title>Sign Up</ion-title>
+=======
+    <ion-title text-center>Sign Up</ion-title>
+>>>>>>> 81db7ac7dccd2ed70171648ad2d8f992964bc74e
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+    <ion-list >
+      <!-- <ion-item>
+        <ion-label>Sign up as</ion-label>
+        <ion-select [(ngModel)]="userType" interface="popover" >
+          <ion-option value="user" >User</ion-option>
+          <ion-option value="vendor" >Vendor</ion-option>
+        </ion-select>
+      </ion-item> -->
 
+<<<<<<< HEAD
   <form #f="ngForm" (ngSubmit)="registerNewUser(f)">
     <ion-list>
       <ion-item>
@@ -45,4 +59,51 @@
     <button type="submit" block ion-button>Sign me Up</button>
   </form>
 
+=======
+      <!-- untuk user -->
+      <!-- <ion-item *ngIf="userType == 'user' " >
+        <ion-label floating color="primary">Username</ion-label>
+        <ion-input type="text" formControlName="username" class="form-control" ngModel ></ion-input>
+        <div class="alert" *ngIf="!registerForm.controls['username'].valid && registerForm.controls['username'].touched">
+          {{titleAlert}}
+        </div>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label floating color="primary">Full Name</ion-label>
+        <ion-input type="text" formControlName="fname" class="form-control" ></ion-input>
+        <div class="alert" *ngIf="!registerForm.controls['fname'].valid && registerForm.controls['fname'].touched">
+            {{titleAlert}}
+        </div>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating color="primary">Last Name</ion-label>
+          <ion-input type="text" formControlName="lname" class="form-control"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating color="primary">Email</ion-label>
+        <ion-input type="text" formControlName="email" class="form-control" ></ion-input>
+        <div class="alert" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched">
+            {{titleAlert}}
+        </div>
+      </ion-item>
+
+      <!-- untuk VENDOR -->
+      <!-- <ion-item>
+        <ion-label floating ></ion-label>
+        <ion-input type="" ></ion-input>
+      </ion-item> -->
+
+      <!-- <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.username">
+          <div class="error-message" *ngIf="validation_form.get('username').hasError(validation.type) && (validation_form.get('username').dirty || validation_form.get('username').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div> -->
+    </ion-list>
+  </form>
+>>>>>>> 81db7ac7dccd2ed70171648ad2d8f992964bc74e
 </ion-content>
