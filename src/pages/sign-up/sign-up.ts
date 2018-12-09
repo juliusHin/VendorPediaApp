@@ -3,6 +3,7 @@ import { User } from './../../data/user.interface';
 import { AuthService } from './../../service/firbaseAuthService';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import firebase from 'firebase';
 /**
  * Generated class for the SignUpPage page.
  *
@@ -29,11 +30,10 @@ export class SignUpPage {
       duration:2000,
       position:"bottom"
     });
-    this.authServiceCtrl.registerUser(f.value.email, f.value.password).then((res)=>{
-      console.log("Register Success");
-      this.navCtrl.setRoot("HomePage");
-    },
-    (err)=>{
+    let verify = firebase.auth().currentUser;
+    verify.sendEmailVerification().then((res)=>{
+        this.authServiceCtrl.registerUser(f.value.email, f.value.password);
+    },(err)=>{
       toast.present();
     });
   }
