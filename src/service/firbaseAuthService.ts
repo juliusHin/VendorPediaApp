@@ -14,7 +14,7 @@ export class AuthService{
     }
 
     getCurrentUser(){
-        let cu = firebase.auth().currentUser;
+        return firebase.auth().currentUser;
     }
 
     getActiveUser(){

@@ -2,6 +2,7 @@ import { User } from './../../data/user.interface';
 
 import { AuthService } from './../../service/firbaseAuthService';
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 <<<<<<< HEAD
 =======
@@ -9,6 +10,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 >>>>>>> 81db7ac7dccd2ed70171648ad2d8f992964bc74e
+=======
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import firebase from 'firebase';
+>>>>>>> branchLauren
 /**
  * Generated class for the SignUpPage page.
  *
@@ -22,6 +27,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
+<<<<<<< HEAD
 <<<<<<< HEAD
   constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService) {
 =======
@@ -48,6 +54,9 @@ export class SignUpPage {
       'validate': ''
     });
 >>>>>>> 81db7ac7dccd2ed70171648ad2d8f992964bc74e
+=======
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService, private toastCtrl:ToastController) {
+>>>>>>> branchLauren
   }
 
   ionViewDidLoad() {
@@ -56,7 +65,17 @@ export class SignUpPage {
 
 <<<<<<< HEAD
   registerNewUser(f:any){
-    this.authServiceCtrl.registerUser(f.value.email, f.value.password);
+    let toast = this.toastCtrl.create({
+      message:"Register Failed",
+      duration:2000,
+      position:"bottom"
+    });
+    let verify = firebase.auth().currentUser;
+    verify.sendEmailVerification().then((res)=>{
+        this.authServiceCtrl.registerUser(f.value.email, f.value.password);
+    },(err)=>{
+      toast.present();
+    });
   }
 
 =======
