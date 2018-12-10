@@ -65,7 +65,39 @@
     <button type="submit" block ion-button>Sign me Up</button>
   </form>
 =======
+<<<<<<< HEAD
   <ion-content padding>
+=======
+      <!-- untuk user -->
+      <!-- <ion-item *ngIf="userType == 'user' " >
+        <ion-label floating color="primary">Username</ion-label>
+        <ion-input type="text" formControlName="username" class="form-control" ngModel ></ion-input>
+        <div class="alert" *ngIf="!registerForm.controls['username'].valid && registerForm.controls['username'].touched">
+          {{titleAlert}}
+        </div>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label floating color="primary">Full Name</ion-label>
+        <ion-input type="text" formControlName="fname" class="form-control" ></ion-input>
+        <div class="alert" *ngIf="!registerForm.controls['fname'].valid && registerForm.controls['fname'].touched">
+            {{titleAlert}}
+        </div>
+      </ion-item>
+
+      <!-- <ion-item>
+          <ion-label floating color="primary">Last Name</ion-label>
+          <ion-input type="text" formControlName="lname" class="form-control"></ion-input>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label floating color="primary">Email</ion-label>
+        <ion-input type="text" formControlName="email" class="form-control" ></ion-input>
+        <div class="alert" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched">
+            {{titleAlert}}
+        </div>
+      </ion-item>
+>>>>>>> 434acbee5b247c3f34bd7d80cd0092dbe24688af
 
     <form #f="ngForm" (ngSubmit)="registerNewUser(f)">
       <ion-list>

@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 <<<<<<< HEAD
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // import {ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -14,6 +15,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import firebase from 'firebase';
 >>>>>>> branchLauren
+=======
+>>>>>>> 434acbee5b247c3f34bd7d80cd0092dbe24688af
 /**
  * Generated class for the SignUpPage page.
  *
@@ -27,6 +30,7 @@ import firebase from 'firebase';
   templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService) {
@@ -57,13 +61,15 @@ export class SignUpPage {
 =======
   constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService, private toastCtrl:ToastController) {
 >>>>>>> branchLauren
+=======
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService) {
+>>>>>>> 434acbee5b247c3f34bd7d80cd0092dbe24688af
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUpPage');
   }
 
-<<<<<<< HEAD
   registerNewUser(f:any){
     let toast = this.toastCtrl.create({
       message:"Register Failed",
@@ -78,23 +84,4 @@ export class SignUpPage {
     });
   }
 
-=======
-  onSubmit(registerUser){
-
-  }
-  ngOnInit() {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.registerForm.get('validate').valueChanges.subscribe(
-      (validate) =>{
-        if (validate == '1'){
-          this.registerForm.get('username').setValidators([Validators.required, Validators.minLength(6)]);
-        }else{
-          this.registerForm.get('username').setValidators([Validators.required]);
-        }
-        this.registerForm.get('username').updateValueAndValidity();
-      }
-    )
-  }
->>>>>>> 81db7ac7dccd2ed70171648ad2d8f992964bc74e
 }
