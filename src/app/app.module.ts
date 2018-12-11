@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {TextMaskModule} from 'angular2-text-mask';
 // import {ReactiveFormsModule}
 
 @NgModule({
@@ -20,7 +21,8 @@ import {HttpModule} from '@angular/http';
     IonicModule.forRoot(MyApp),
     HttpModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    TextMaskModule
 
   ],
   bootstrap: [IonicApp],

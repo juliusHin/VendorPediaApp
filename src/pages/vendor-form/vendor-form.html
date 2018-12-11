@@ -5,21 +5,21 @@
 </ion-header>
 
 <ion-content padding>
-  <form>
+  <form #formVendor="ngForm" (ngSubmit)="registerVendor(formVendor)"  >
     <ion-item>
       <ion-label stacked >Vendor Name</ion-label>
-      <ion-input type="text" ></ion-input>
+      <ion-input required name="uVendorname" type="text" placeholder="example: My Vendor" ngModel ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked >Description</ion-label>
-      <ion-textarea></ion-textarea>
+      <ion-textarea required name="uVendorDesc" placeholder="example: We provide your needs" ngModel></ion-textarea>
     </ion-item>
 
     <!-- pakai regex nomor hp -->
     <ion-item>
       <ion-label stacked >Contact</ion-label>
-      <ion-input type="" ></ion-input>
+      <ion-input required type="tel" placeholder="081234567890" ></ion-input>
     </ion-item>
 
     <!-- pakai for
@@ -28,19 +28,25 @@
     -->
     <ion-item>
       <ion-label stacked >Category</ion-label>
-      <ion-input type="" ></ion-input>
+      <ion-select name="categories" ngModel multiple="true">
+        <ion-option>Foods</ion-option>
+        <ion-option>Drinks</ion-option>
+        <ion-option>Equipments</ion-option>
+        <ion-option>Services</ion-option>
+        <ion-option>Events</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked \> Address</ion-label>
-      <ion-textarea></ion-textarea>>
+      <ion-label stacked > Address</ion-label>
+      <ion-textarea required name="address" placeholder="example: Scientia Boulevard" ngModel></ion-textarea>>
     </ion-item>
 
     <ion-item>
       <ion-label stacked > Photo</ion-label>
-      <ion-input type="" ></ion-input>
+      <ion-input ></ion-input>
     </ion-item>
 
-
+    <button ion-button type="submit" block [disabled]="!formVendor.valid">Register</button>
   </form>
 </ion-content>
