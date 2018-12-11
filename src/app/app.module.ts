@@ -11,6 +11,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {TextMaskModule} from 'angular2-text-mask';
 // import {ReactiveFormsModule}
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,17 @@ import {TextMaskModule} from 'angular2-text-mask';
     StatusBar,
     SplashScreen,
     AuthService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    FileTransfer,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    // sumber
+    // https://www.djamware.com/post/599da16580aca768e4d2b130/how-to-upload-file-on-ionic-3-using-native-file-transfer-plugin
+
+    // https://stackoverflow.com/questions/46068697/ionic-fileuploadoptions-throw-error-when-add-to-app-module-ts?rq=1
+
+    // FileUploadOptions,
+    FileTransferObject,
+    File,
+    Camera
   ]
 })
 export class AppModule {}
