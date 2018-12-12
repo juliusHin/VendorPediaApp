@@ -3,7 +3,7 @@ import { AuthService } from './../service/firbaseAuthService';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
@@ -14,7 +14,7 @@ import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
-    MyApp,
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -26,11 +26,12 @@ import {HttpModule} from '@angular/http';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    MyApp
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+
+    // SplashScreen,
     AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     // sumber
