@@ -1,8 +1,13 @@
+import { FirebaseService } from './../../service/firebaseService';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, normalizeURL } from 'ionic-angular';
 import { NgForm, FormControl, Validators, FormGroup } from '@angular/forms';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import firebase, { storage } from 'firebase';
+import {ImagePicker} from '@ionic-native/image-picker';
+import {Crop} from '@ionic-native/crop';
+// import firebase = require('firebase');
 
 /**
  * Generated class for the VendorFormPage page.
@@ -29,12 +34,15 @@ export class VendorFormPage implements OnInit{
   registerVendorForm: FormGroup;
   imageURI:any;
   imageFileName:any;
+  firebaseService: FirebaseService;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private transfer: FileTransfer,
     private camera: Camera,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    public imagePicker: ImagePicker,
+    public cropService: Crop) {
 
   }
   ngOnInit(){
@@ -62,6 +70,27 @@ export class VendorFormPage implements OnInit{
 
   }
 
+  async takePhoto(){
+    try{
+      const options: CameraOptions = {
+        quality: 50,
+        targetHeight: 600,
+        targetWidth: 600,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE
+      }
+
+      const result = await this.camera.getPicture(options);
+
+      const image = 'data:image/jpeg; base64, ${result}';
+
+      const pictures = storage().ref('pictures');
+      pictures.putString(image,'data_url');
+    }catch(e){
+      console.error(e);
+    }
+  }
   addImage(){
     const options: CameraOptions = {
       quality: 100,
@@ -95,6 +124,76 @@ export class VendorFormPage implements OnInit{
   ionViewDidLoad() {
     console.log('ionViewDidLoad VendorFormPage');
   }
+
+  // sumber
+  // https://ionicthemes.com/tutorials/about/ionic-firebase-image-upload
+  // ada pada firebaseService.ts
+
+  uploadImageToFirebase(image){
+    image = normalizeURL(image);
+
+    //uploads img to firebase storage
+    this.firebaseService.uploadImage(image)
+    .then(photoURL => {
+
+      let toast = this.toastCtrl.create({
+        message: 'Image was updated successfully',
+        duration: 3000
+      });
+      toast.present();
+      })
+    }
+
+  // openImagePicker(){
+  //   this.imagePicker.hasReadPermission().then(
+  //     (result) => {
+  //       if(result == false){
+  //         // no callbacks required as this opens a popup which returns async
+  //         this.imagePicker.requestReadPermission();
+  //       }
+  //       else if(result == true){
+  //         this.imagePicker.getPictures({
+  //           maximumImagesCount: 1
+  //         }).then(
+  //           (results) => {
+  //             for (var i = 0; i < results.length; i++) {
+  //               this.uploadImageToFirebase(results[i]);
+  //             }
+  //           }, (err) => console.log(err)
+  //         );
+  //       }
+  //     }, (err) => {
+  //       console.log(err);
+  //     });
+  //   }
+
+  openImagePickerCrop(){
+    this.imagePicker.hasReadPermission().then(
+      (result) => {
+        if(result == false){
+          // no callbacks required as this opens a popup which returns async
+          this.imagePicker.requestReadPermission();
+        }
+        else if(result == true){
+          this.imagePicker.getPictures({
+            maximumImagesCount: 1
+          }).then(
+            (results) => {
+              for (var i = 0; i < results.length; i++) {
+                this.cropService.crop(results[i], {quality: 75}).then(
+                  newImage => {
+                    this.uploadImageToFirebase(newImage);
+                  },
+                  error => console.error("Error cropping image", error)
+                );
+              }
+            }, (err) => console.log(err)
+          );
+        }
+      }, (err) => {
+        console.log(err);
+      });
+    }
 
   // pakai code INI UNTUK UPLOAD KE SERVER
   // COPAS DARI WEB INI
