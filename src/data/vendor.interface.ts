@@ -6,5 +6,5 @@ export interface Vendor{
     vendorCategory:string;
     vendorContact:string;
     vendorAddress:string;
-    vendorPhoto:string;
+    vendorPhoto:any;
 }
