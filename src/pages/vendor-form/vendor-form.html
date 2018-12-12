@@ -1,18 +1,56 @@
-<!--
-  Generated template for the VendorFormPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>vendorForm</ion-title>
+  <ion-navbar class="navbar">
+    <ion-title>Register Vendor</ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content padding class="page">
+  <form [formGroup]="registerVendorForm" (ngSubmit)="onSubmit()" >
+    <ion-item>
+      <ion-label stacked >Vendor Name</ion-label>
+      <ion-input type="text" placeholder="example: My Vendor" formControlName="uVendorname" ></ion-input>
+    </ion-item>
 
-<ion-content padding>
+    <ion-item>
+      <ion-label stacked >Description</ion-label>
+      <ion-textarea placeholder="example: We provide your needs" formControlName="uVendorDesc"></ion-textarea>
+    </ion-item>
 
+    <!-- pakai regex nomor hp -->
+    <ion-item>
+      <ion-label stacked >Contact</ion-label>
+      <ion-input type="text" placeholder="081234567890" formControlName="uVendorContact"></ion-input>
+    </ion-item>
+
+    <!-- pakai for
+    https://forum.ionicframework.com/t/ion-select-with-ngfor/65940/2
+
+    -->
+    <ion-item>
+      <ion-label stacked >Category</ion-label>
+      <ion-select name="categories" formControlName="uVendorCategory" multiple="true" placeholder="Choose" formControlName="uVendorCategory">
+        <ion-option *ngFor="let item of items" [value]="item">{{item}} </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked > Address</ion-label>
+      <ion-textarea formControlName="uVendorAddress" placeholder="example: Scientia Boulevard"></ion-textarea>>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label stacked > Photo</ion-label> -->
+      <h4>Image Preview</h4>
+      <img src="{{imageFileName}} " *ngIf=imageFileName alt="Ionic File" width="300">
+
+      <p>{{imageURI}} </p>
+      <!-- sumber
+      https://www.djamware.com/post/599da16580aca768e4d2b130/how-to-upload-file-on-ionic-3-using-native-file-transfer-plugin
+     -->
+      <button ion-button block color="secondary" (click)="openMenu()">Add Image</button>
+      <!-- <ion-input ></ion-input> -->
+    </ion-item>
+
+    <button ion-button type="submit" block [disabled]="!formVendor.valid">Register</button>
+  </form>
 </ion-content>

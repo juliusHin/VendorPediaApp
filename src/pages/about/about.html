@@ -1,4 +1,56 @@
-<ion-header no-shadow>
+<ion-header>
+    <ion-mavbar>
+        <button ion-buton menuToogle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            About
+        </ion-title>
+    </ion-mavbar>
+</ion-header>
+
+<ion-content padding>
+    <img src="assets/img/icon.png" alt="">
+        <h1>VendorPedia</h1>
+        <p>
+            VendorPedia adalah aplikasi Sistem Informasi untuk membantu sebuah kepanitiaan atau organisasi kampus yang sedang mencari vendor untuk makanan atau perlengakapan yang akan dipergunakan ketika event berlangsung maupun pencarian dana.
+        </p>
+
+    <img src="assets/img/toper" alt="">
+        <h1>Christoper Lauren</h1>
+        <p>
+            14110110142
+        </p>
+
+    <img src="assets/img/julius" alt="">
+        <h1>Julius Tanuwijaya</h1>
+        <p>
+            14110110027
+        </p>
+    
+    <img src="assets/img/dainuri" alt="">
+        <h1>Dainuri</h1>
+        <p>
+            14110110029
+        </p>
+    
+    <img src="assets/img/kenny" alt="">
+        <h1>Vincentius Kenny</h1>
+        <p>
+            14110110122
+        </p>
+
+    <img src="assets/img/tika" alt="">
+        <h1>Dian Kartika</h1>
+        <p>
+            00000009308
+        </p>
+</ion-content>
+
+
+
+
+<!--<ion-header no-shadow>
   <ion-navbar>
       <ion-buttons end *ngIf="showSkip">
           <button ion-button (click)="startApp()" color="primary">Skip</button>
@@ -6,7 +58,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content no-bounce class="bg-img">
+
+ <ion-content no-bounce class="bg-img">
   <ion-slides  (ionWillChange)="onSlideChangeStart($event)">
 
       <ion-slide *ngFor="let slide of slides">
@@ -14,13 +67,13 @@
           <h2 class="slide-title" [innerHTML]="slide.title"></h2>
           <p [innerHTML]="slide.description"></p>
       </ion-slide>
-      <!-- <ion-slide>
+      <ion-slide>
           <img src="slide.image" class="slide-image" alt="slide.title" />
           <h2 class="slide-title">About Us</h2>
           <button ion-button icon-right large clear (click)="startApp()">
             Continue
             <ion-icon name="fastforward"></ion-icon>
           </button>
-      </ion-slide> -->
+      </ion-slide>
   </ion-slides>
-</ion-content>
+</ion-content> -->

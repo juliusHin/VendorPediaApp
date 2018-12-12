@@ -6,13 +6,52 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>signUp</ion-title>
+  <ion-navbar class="navbar">
+    <ion-title>Sign Up</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="page">
+  <!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+    <ion-list > -->
+      <!-- <ion-item>
+        <ion-label>Sign up as</ion-label>
+        <ion-select [(ngModel)]="userType" interface="popover" >
+          <ion-option value="user" >User</ion-option>
+          <ion-option value="vendor" >Vendor</ion-option>
+        </ion-select>
+      </ion-item> -->
+
+  <form #f="ngForm" (ngSubmit)="registerNewUser(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>First Name</ion-label>
+        <ion-input name="fname" type="text" placeholder="Enter your first name" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Last Name</ion-label>
+        <ion-input name="lname" type="text" placeholder="Enter your last name" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Contact</ion-label>
+        <ion-input name="contact" type="text" placeholder="Phone number" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input name="email" type="text" placeholder="Enter your email" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input name="password" type="password" placeholder="Enter your password" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Confirm Password</ion-label>
+        <ion-input name="cPassword" type="password" placeholder="Confirm password" ngModel></ion-input>
+      </ion-item>
+    </ion-list>
+    <button type="submit" block ion-button>Sign me Up</button>
+  </form>
 
 </ion-content>
