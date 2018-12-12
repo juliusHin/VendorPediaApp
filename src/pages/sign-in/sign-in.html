@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar class="navbar">
       <ion-buttons start>
           <button ion-button menuToggle >
           <ion-icon name="menu"></ion-icon>
@@ -19,7 +19,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="page">
   <form #f="ngForm" (ngSubmit)="emailSignIn(f)">
     <ion-list>
       <ion-item>
