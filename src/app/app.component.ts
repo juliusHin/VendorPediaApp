@@ -16,6 +16,7 @@ export class MyApp {
   about = 'AboutPage';
   signIn = 'SignInPage';
   signup = 'SignUpPage'
+  vendorForm = 'VendorFormPage';
   @ViewChild('sideMenu') nav: NavController;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private menuCtrl:MenuController) {

@@ -19,7 +19,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignUpPage implements OnInit {
   regisForm:FormGroup;
- 
+  user = {} as User;
   constructor(public navCtrl: NavController, public navParams: NavParams, private authServiceCtrl:AuthService, private toastCtrl:ToastController,
   ) {
   }
