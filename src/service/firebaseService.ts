@@ -2,11 +2,31 @@ import { Injectable } from "@angular/core";
 import 'rxjs/add/operator/toPromise';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable()
 export class FirebaseService {
 
-  constructor(){}
+  constructor(
+    public afs: AngularFirestore,
+  ){}
+
+  addVendor(value){
+    return new Promise<any>((resolve, reject) =>{
+      this.afs.collection('/vendors').add({
+        vendorName: value.uVendorname,
+        vendorDescription: value.uVendorDesc,
+        vendorContact: value.uVendorContact,
+        vendorCategory: value.uVendorCategories,
+        vendorAddress: value.uVendorAddress
+      }).then(
+        (res) =>{
+          resolve(res)
+        },
+        err=> reject(err)
+      )
+    })
+  }
 
   encodeImageUri(imageUri, callback) {
     var c = document.createElement('canvas');
@@ -38,6 +58,16 @@ export class FirebaseService {
     })
   }
 
+  // http://www.offlineprogrammer.com/upload-images-firebase-storage-using-ionic-framework/
+  public generateUUID(): any {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0;
+      d = Math.floor(d / 16);
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+  }
 
 
 }
