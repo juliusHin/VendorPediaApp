@@ -1,6 +1,6 @@
 import { FirebaseService } from './../../service/firebaseService';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController, normalizeURL } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, normalizeURL, ActionSheetController, Platform } from 'ionic-angular';
 import { NgForm, FormControl, Validators, FormGroup } from '@angular/forms';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -42,7 +42,9 @@ export class VendorFormPage implements OnInit{
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public imagePicker: ImagePicker,
-    public cropService: Crop) {
+    public cropService: Crop,
+    public actionsheetctrl: ActionSheetController,
+    public platform: Platform) {
 
   }
   ngOnInit(){
@@ -70,6 +72,36 @@ export class VendorFormPage implements OnInit{
 
   }
 
+  openMenu(){
+    let actionsheet = this.actionsheetctrl.create({
+      title:'take picture from ?',
+      cssClass: 'action-sheet-basic-page',
+      buttons:[
+        {
+          text: 'Camera',
+          icon: 'camera',
+          handler:()=>{
+            console.log('pilih gambar dengan kamera');
+            this.takePhoto();
+          }
+        },
+        {
+          text: 'Gallery',
+          icon: 'image',
+          handler:()=>{
+            console.log('pilih gambar dengan galeri');
+            this.openImagePickerCrop();
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    actionsheet.present();
+  }
+
   async takePhoto(){
     try{
       const options: CameraOptions = {
@@ -87,10 +119,13 @@ export class VendorFormPage implements OnInit{
 
       const pictures = storage().ref('pictures');
       pictures.putString(image,'data_url');
+      
+      this.imageURI = result; //modifikasi Julius T
     }catch(e){
       console.error(e);
     }
   }
+
   addImage(){
     const options: CameraOptions = {
       quality: 100,
@@ -183,6 +218,9 @@ export class VendorFormPage implements OnInit{
                 this.cropService.crop(results[i], {quality: 75}).then(
                   newImage => {
                     this.uploadImageToFirebase(newImage);
+                    
+                    
+                    this.imageURI = newImage; //modifikasi Julius T
                   },
                   error => console.error("Error cropping image", error)
                 );
