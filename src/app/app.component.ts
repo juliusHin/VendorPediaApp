@@ -20,15 +20,24 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private menuCtrl:MenuController) {
     var config = {
-    apiKey: "AIzaSyBuircFO_sf_vcemKrwqWIqwXUGibtlUQc",
-    authDomain: "vendorpedia-54d53.firebaseapp.com",
-    databaseURL: "https://vendorpedia-54d53.firebaseio.com",
-    projectId: "vendorpedia-54d53",
-    storageBucket: "vendorpedia-54d53.appspot.com",
-    messagingSenderId: "947381527762"
+    apiKey: "AIzaSyBSWCW5UoOjyJ8gtJs3i92H6MrFwr3zN7Y",
+    authDomain: "vendorpedia-6f595.firebaseapp.com",
+    databaseURL: "https://vendorpedia-6f595.firebaseio.com",
+    projectId: "vendorpedia-6f595",
+    storageBucket: "vendorpedia-6f595.appspot.com",
+    messagingSenderId: "37472993473"
     };
     firebase.initializeApp(config);
-    
+    const unsubscribe = firebase.auth().onAuthStateChanged(
+      user=>{
+        if(!user && firebase.auth().currentUser.emailVerified){
+          this.rootPage = this.home;
+        }else{
+          this.rootPage = this.signIn;
+          
+        }
+      }
+    )
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

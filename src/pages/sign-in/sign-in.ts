@@ -58,13 +58,7 @@ export class SignInPage {
       toast2.present();
     }
   }
-
-
-  reg(){
-    this.navCtrl.push("SignUpPage"); 
-    console.log("Register User");
-  }
-
+  
   reg(){
     this.navCtrl.push(this.registerPage);
   }
