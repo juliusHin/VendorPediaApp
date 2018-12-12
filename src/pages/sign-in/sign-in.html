@@ -6,25 +6,45 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar class="navbar">
       <ion-buttons start>
           <button ion-button menuToggle >
           <ion-icon name="menu"></ion-icon>
           </button>
-          </ion-buttons>
-
-    <ion-title>Sign In</ion-title>
-  </ion-navbar>
-
-</ion-header>
+        </div>
 
 
-<ion-content padding>
-  <form #f="ngForm" (ngSubmit)="emailSignIn(f)">
-    <ion-list>
-      <ion-item>
-          <ion-label stacked>Email</ion-label>
-          <ion-input type="text" name="email" required placeholder="Enter your email" ngModel></ion-input>
+    </form>
+
+    <form (submit)="doLogin()" *ngSwitchCase="'signup'">
+      <ion-label>{{ 'Username' }}</ion-label>
+          <ion-input type="text"  name="username"></ion-input>
+
+
+      <ion-label float>{{ 'Fullname' }}</ion-label>
+          <ion-input type="text"  name="fullname"></ion-input>
+
+
+
+          <ion-label float>{{ 'Email' }}</ion-label>
+          <ion-input type="email"  name="email"></ion-input>
+
+
+          <ion-label float>{{ 'Password' }}</ion-label>
+          <ion-input type="password" name="password"></ion-input>
+
+
+
+          <ion-label float>{{ 'Retry Password' }}</ion-label>
+          <ion-input type="password" name="password"></ion-input>
+
+
+        <div padding text-center>
+          <button ion-button round color="light" icon-right>
+            {{ 'SIGNUP'  }} <ion-icon name="person-add"></ion-icon>
+          </button>
+        </div>
+
       </ion-item>
       <ion-item>
           <ion-label stacked>Password</ion-label>

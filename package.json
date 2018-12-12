@@ -22,7 +22,7 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/camera": "^4.18.0",
-    "@ionic-native/core": "^4.17.0",
+    "@ionic-native/core": "^4.18.0",
     "@ionic-native/crop": "^4.18.0",
     "@ionic-native/file": "^4.18.0",
     "@ionic-native/file-transfer": "^4.18.0",
@@ -47,7 +47,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "^3.2.1",
+    "@ionic/app-scripts": "3.2.1",
     "@ionic/lab": "1.0.15",
     "typescript": "~2.6.2"
   },

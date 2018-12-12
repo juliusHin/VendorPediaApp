@@ -14,3 +14,23 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@import "../pages/about";
+@import "../pages/home";
+@import "../pages/sign-in";
+@import "../pages/sign-up";
+@import "../pages/splash-screen";
+@import "../pages/user-setting";
+@import "../pages/vendor-detail";
+@import "../pages/vendor-form";
+@import "../pages/vendor-setting";
+
+@font-face {
+    font-family: Ormont_Light;
+    src: url(../assets/fonts/Ormont_Light.otf) format("otf");
+    font-weight: 200;
+    font-style: normal;
+    body{
+        font-family: Ormont_Light !important;
+    }
+}
