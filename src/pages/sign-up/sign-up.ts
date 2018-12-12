@@ -32,8 +32,8 @@ export class SignUpPage {
       position:"bottom"
     });
     let verify = firebase.auth().currentUser;
-    verify.sendEmailVerification().then((res)=>{
-        this.authServiceCtrl.registerUser(f.value.email, f.value.password);
+    this.authServiceCtrl.registerUser(f.value.email, f.value.password).then((res)=>{
+      verify.sendEmailVerification();
     },(err)=>{
       toast.present();
     });
