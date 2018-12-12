@@ -7,6 +7,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import firebase, { storage } from 'firebase';
 import {ImagePicker} from '@ionic-native/image-picker';
 import {Crop} from '@ionic-native/crop';
+import { CloneVisitor } from '@angular/compiler/src/i18n/i18n_ast';
 // import firebase = require('firebase');
 
 /**
@@ -62,16 +63,32 @@ export class VendorFormPage implements OnInit{
       uVendorContact: new FormControl(null,Validators.compose([
         Validators.required, Validators.pattern('^(^\+62\s?|^0)(\d{3,4}-?){2}\d{3,4}$')
       ])),
-      uVendorCategory: new FormControl(null, Validators.required),
+      uVendorCategories: new FormControl(null, Validators.required),
       uVendorAddress: new FormControl(null, Validators.required),
       uVendorPhoto: new FormControl(null)
     });
   }
 
-  onSubmit(){
-
+  onSubmit(value){
+    this.firebaseService.addVendor(value).then(
+      res =>{
+        let toast = this.toastCtrl.create({
+          message:'Vendor was created successfully',
+          duration: 3000
+        });
+        toast.present();
+        this.goback();
+      }, err=>{
+        console.log(err);
+      }
+    )
   }
 
+  goback(){
+    this.navCtrl.pop();
+    console.log('back');
+  }
+  
   openMenu(){
     let actionsheet = this.actionsheetctrl.create({
       title:'take picture from ?',
@@ -172,7 +189,7 @@ export class VendorFormPage implements OnInit{
     .then(photoURL => {
 
       let toast = this.toastCtrl.create({
-        message: 'Image was updated successfully',
+        message: 'Image was uploaded successfully',
         duration: 3000
       });
       toast.present();

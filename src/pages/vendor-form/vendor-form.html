@@ -4,8 +4,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="page">
-  <form [formGroup]="registerVendorForm" (ngSubmit)="onSubmit()" >
+
+<ion-content padding>
+  <form [formGroup]="registerVendorForm" (ngSubmit)="onSubmit(registerVendorForm.value)" >
     <ion-item>
       <ion-label stacked >Vendor Name</ion-label>
       <ion-input type="text" placeholder="example: My Vendor" formControlName="uVendorname" ></ion-input>
