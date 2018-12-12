@@ -8,7 +8,7 @@ import firebase from 'firebase';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = 'HomePage';
+  rootPage:any = 'AboutPage';
   home = 'HomePage';
   about = 'AboutPage';
   signIn = 'SignInPage';

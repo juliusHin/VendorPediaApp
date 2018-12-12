@@ -1,25 +1,16 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core'
+import {PopoverController, IonicPage} from 'ionic-angular'
 
-/**
- * Generated class for the AboutPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
+
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html',
+  selector:'page-about',
+  templateUrl:'about.html'
 })
+
 export class AboutPage {
+  conferenceDate = '2047-05-17';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AboutPage');
-  }
-
+  constructor(public popoverCtrl: PopoverController) {}
 }
