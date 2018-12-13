@@ -1,10 +1,10 @@
 {
   "name": "VendorPediaV2",
-  "app_id": "95965189",
-  "v2": true,
-  "typescript": true,
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "v2": true,
+  "typescript": true,
+  "id": "95965189"
 }
