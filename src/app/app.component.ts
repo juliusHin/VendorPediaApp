@@ -1,3 +1,4 @@
+import { HomePage } from './../pages/home/home';
 import { SignUpPage } from './../pages/sign-up/sign-up';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, MenuController } from 'ionic-angular';
@@ -10,7 +11,7 @@ import firebase from 'firebase';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any;
+  rootPage= 'HomePage';
   home = 'HomePage';
   about = 'AboutPage';
   signIn = 'SignInPage';
