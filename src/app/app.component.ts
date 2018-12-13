@@ -28,16 +28,16 @@ export class MyApp {
     messagingSenderId: "37472993473"
     };
     firebase.initializeApp(config);
-    const unsubscribe = firebase.auth().onAuthStateChanged(
-      user=>{
-        if(!user && firebase.auth().currentUser.emailVerified){
-          this.rootPage = this.home;
-        }else{
-          this.rootPage = this.signIn;
+    // const unsubscribe = firebase.auth().onAuthStateChanged(
+    //   user=>{
+    //     if(!user && firebase.auth().currentUser.emailVerified){
+    //       this.rootPage = this.home;
+    //     }else{
+    //       this.rootPage = this.signIn;
           
-        }
-      }
-    )
+    //     }
+    //   }
+    // )
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
