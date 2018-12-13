@@ -10,12 +10,13 @@ import firebase from 'firebase';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = 'AboutPage';
+  rootPage:any;
   home = 'HomePage';
   about = 'AboutPage';
   signIn = 'SignInPage';
   signup = 'SignUpPage';
   vendorForm = 'VendorFormPage';
+  // about = 'AboutPage';
   @ViewChild('sideMenu') nav: NavController;
 
   constructor(platform: Platform, statusBar: StatusBar, private menuCtrl:MenuController) {

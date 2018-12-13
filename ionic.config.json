@@ -3,5 +3,8 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "v2": true,
+  "typescript": true,
+  "id": "95965189"
 }
