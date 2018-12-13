@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import {PopoverController} from 'ionic-angular'
+import {PopoverController, IonicPage} from 'ionic-angular'
 import { componentFactoryName } from '@angular/compiler';
 
 @IonicPage()
